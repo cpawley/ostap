@@ -19,7 +19,7 @@ steps:
      echo  "CVMFS_HTTP_PROXY=DIRECT"  | sudo tee -a  /etc/cvmfs/default.local > /dev/null
      sudo service autofs restart
      sudo cvmfs_config probe
-  displayName:'install cvmfs'
+  displayName: 'install cvmfs'
 - script: |
      docker  create -v  osya --name ostap-build  gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest
      docker cp  $PWD  ostap-build:/osya
