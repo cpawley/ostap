@@ -30,8 +30,10 @@ steps:
   displayName: 'build stage'
 - script: |
      docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ && ./scripts/test"
-     docker cp  ostap-build:/osya/build .
   displayName: 'test stage'
+- script: |
+     docker cp  ostap-build:/osya/build .      
+  displayName: 'copy build result'
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'test'
