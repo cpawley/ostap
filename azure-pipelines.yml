@@ -30,5 +30,13 @@ steps:
   displayName: 'build stage'
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'artifactName'
+    artifactName: 'build'
     targetPath: '$(System.DefaultWorkingDirectory)/build'
+- script: |
+     docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ && ./scripts/test"
+     docker cp  ostap-build:/osya/build .
+  displayName: 'test stage'
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifactName: 'test'
+    targetPath: '$(System.DefaultWorkingDirectory)/build/Testing'
