@@ -28,3 +28,7 @@ steps:
      docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ && ./scripts/bootstrap"
      docker cp  ostap-build:/osya/build .
   displayName: 'build stage'
+  - task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'artifactName'
+    targetPath: 'build'
