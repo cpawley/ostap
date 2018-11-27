@@ -22,9 +22,9 @@ steps:
   displayName: 'install cvmfs'
 - script: |
      docker  create -v  osya --name ostap-build  gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest
-     docker cp  ostap  ostap-build:/osya
+     docker cp  .  ostap-build:/osya
   displayName: 'docker container'
 - script: |
-     docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ostap && ls "
-     docker cp  ostap-build:/osya/ostap/build ostap/
+     docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ && ./scripts/bootstrap"
+     docker cp  ostap-build:/osya/ostap/build .
   displayName: 'build stage'
