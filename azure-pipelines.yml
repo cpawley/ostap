@@ -36,7 +36,6 @@ jobs:
     displayName: 'test stage'
   - script: |
        docker cp  ostap-build:/osya/build .
-    condition: in(dependencies.build.build.result.Succeeded,'true')
     displayName: 'copy build result'
   - task: PublishPipelineArtifact@0
     inputs:
