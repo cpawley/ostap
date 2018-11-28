@@ -30,7 +30,8 @@ jobs:
        docker cp  ostap-build:/osya/build .
     name: build
     displayName: 'build stage'
-- job: test 
+- job: test
+  steps:
   - script: |
        docker run --rm   -v /cvmfs:/cvmfs --volumes-from ostap-build -u:0 gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest /bin/bash -c "cd /osya/ && ./scripts/test"
     displayName: 'test stage'
