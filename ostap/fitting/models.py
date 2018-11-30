@@ -129,6 +129,7 @@ __all__ = (
     'Voigt_pdf'            , ## Voigt-profile 
     'PseudoVoigt_pdf'      , ## Voigt-profile 
     'BW23L_pdf'            , ## BW23L
+    'BWMC_pdf'             , ## BWMC
     'Swanson_pdf'          , ## Swanson's S-wave cusp
     #
     ## "Other" distributions 
@@ -263,6 +264,8 @@ logger.debug ("Import simultaneous fit            from ``simfit''"       )
 from ostap.fitting.simfit        import Sim1D
 logger.debug ("Import PyPDF                       from ``pypdf''"        )
 from ostap.fitting.pypdf         import PyPDF
+logger.debug ("Import modifiers                   from ``modifiers''"    )
+from ostap.fitting.modifiers     import *
 
 models = []
 from ostap.fitting.signals       import models as _models 
