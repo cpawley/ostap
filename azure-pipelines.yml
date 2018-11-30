@@ -6,9 +6,12 @@ jobs:
     name: sl6
     vmImage: 'ubuntu-16.04'
     dockername: 'gitlab-registry.cern.ch/lhcb-core/lbdocker/slc6-build:latest'
-
+    LCG: 'LCG_93'
+    artifact: 'PublishPipelineArtifact@0'
 - template: template-pipelines.yml  # Template reference
   parameters:
     name: centos7
     vmImage:  'ubuntu-16.04'
     dockername: 'gitlab-registry.cern.ch/lhcb-core/lbdocker/centos7-build:latest'
+    LCG: 'LCG_93'
+    artifact: 'PublishPipelineArtifact@1'
