@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-LCG=$1
-echo $LCG
-source /cvmfs/sft.cern.ch/lcg/views/${LCG}/${CMTCONFIG}/setup.sh 
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=./INSTALL/ && make -j12 && make install
