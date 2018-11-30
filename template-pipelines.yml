@@ -41,8 +41,8 @@ jobs:
      docker cp  ostap-build:/osya/build .
     condition: always()
     displayName: 'copy build result'
-  - task: ${{ parameters.artifact }}
+  - task: PublishPipelineArtifact@0
     inputs:
-      artifactName: 'test'
+      artifactName:   ${{ parameters.artifact }}
       targetPath: '$(System.DefaultWorkingDirectory)/build'
     condition: always()
